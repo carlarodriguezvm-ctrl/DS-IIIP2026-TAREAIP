@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('rentals', function (Blueprint $table) {
             $table->id();
+            $table->foreignid(customer_id)->constrained('costumers')->onDelete('cascade');
+            $table->foreignid(employee_id)->constrained(employees)->onDelete('cascade');
+            $table->datetime('request_date');
+            $table->datetime('start_date');
+            $table->datetime('end_date');
+            $table->enum('status',['Pending','Active', 'Completed', 'Cancelled']);
             $table->timestamps();
         });
     }

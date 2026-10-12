@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('rental_details', function (Blueprint $table) {
             $table->id();
+            $table->foreign('rental_id')->Constrained('rentals')->OnDelete('cascade');
+            $table->foreign('equipment_id')->Constrained('equipments')->OnDelete('cascade');
+            $table->int('quantity');
             $table->timestamps();
         });
     }

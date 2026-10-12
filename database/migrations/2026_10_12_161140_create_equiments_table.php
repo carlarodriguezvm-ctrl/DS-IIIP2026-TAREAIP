@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('equiments', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
+            $table->string('equiment_code', 50)->unique();
+            $table->text('descripction')->nullable();
+            $table->string('brand', 100);
+            $table->decimal('daily_rental_price', 10,2);
+            $table->enum('status',['Available','Rented', 'Maintenace', 'Retired']);
             $table->timestamps();
         });
     }
