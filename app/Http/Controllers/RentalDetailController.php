@@ -12,7 +12,8 @@ class RentalDetailController extends Controller
      */
     public function index()
     {
-        //
+        $rentaldetail = RentalDetail::all();
+        return dd($rentaldetail);
     }
 
     /**

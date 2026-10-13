@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Equiment;
+use App\Models\Equipment;
 use Illuminate\Http\Request;
 
-class EquimentController extends Controller
+class EquipmentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $equipment = Equipment::with('category')->get();
+        return dd($equipment);
     }
 
     /**
