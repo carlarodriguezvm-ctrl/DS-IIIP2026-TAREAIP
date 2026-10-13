@@ -11,18 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('rentals', function (Blueprint $table) {
-            $table->id();
-            $table->foreignid(customer_id)->constrained('costumers')->onDelete('cascade');
-            $table->foreignid(employee_id)->constrained(employees)->onDelete('cascade');
-            $table->datetime('request_date');
-            $table->datetime('start_date');
-            $table->datetime('end_date');
-            $table->enum('status',['Pending','Active', 'Completed', 'Cancelled']);
-            $table->timestamps();
-        });
+            Schema::create('rentals', function (Blueprint $table) {
+    $table->id();
+    $table->foreignId('customer_id')->constrained('customers')->onDelete('cascade');
+    $table->foreignId('employee_id')->constrained('employees')->onDelete('cascade');
+    $table->dateTime('request_date');
+    $table->dateTime('start_date');
+    $table->dateTime('end_date');
+    $table->enum('status', ['Pending', 'Active', 'Completed', 'Cancelled']);
+    $table->timestamps();
+});
     }
-
     /**
      * Reverse the migrations.
      */

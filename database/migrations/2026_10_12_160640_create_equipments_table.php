@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('equiments', function (Blueprint $table) {
+        Schema::create('equipments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
-            $table->string('equiment_code', 50)->unique();
-            $table->text('descripction')->nullable();
+            $table->string('name', 100);
+            $table->string('equipment_code', 50)->unique();
+            $table->text('description')->nullable();
             $table->string('brand', 100);
             $table->decimal('daily_rental_price', 10,2);
-            $table->enum('status',['Available','Rented', 'Maintenace', 'Retired']);
+            $table->enum('status',['Available','Rented', 'Maintenance', 'Retired']);
             $table->timestamps();
         });
     }
