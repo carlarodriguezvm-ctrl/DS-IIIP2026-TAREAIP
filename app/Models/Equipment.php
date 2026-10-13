@@ -11,6 +11,8 @@ class Equipment extends Model
 {
     use HasFactory;
 
+        protected $table = 'equipments';
+
     protected $fillable = ['category_id', 'name', 'equipment_code', 'description', 'brand', 'daily_rental_price', 'status'];
 
     public function categories ()
